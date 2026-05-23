@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-label="cartoon smart car">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#e0f6ff"/>
+      <stop offset=".72" stop-color="#fff7db"/>
+      <stop offset="1" stop-color="#dff8ed"/>
+    </linearGradient>
+    <linearGradient id="car" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#43a4f4"/>
+      <stop offset="1" stop-color="#d7c6ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="360" rx="36" fill="url(#sky)"/>
+  <path d="M62 282h396" stroke="#7bd8b8" stroke-width="18" stroke-linecap="round"/>
+  <path d="M142 202l52-72h126l58 72h36c20 0 36 16 36 36v24H70v-24c0-20 16-36 36-36h36z" fill="url(#car)" filter="drop-shadow(0 18px 18px rgba(37,48,71,.16))"/>
+  <path d="M210 146h94l36 56H170z" fill="#fff" opacity=".92"/>
+  <circle cx="154" cy="262" r="34" fill="#253047"/>
+  <circle cx="154" cy="262" r="15" fill="#fff"/>
+  <circle cx="366" cy="262" r="34" fill="#253047"/>
+  <circle cx="366" cy="262" r="15" fill="#fff"/>
+  <circle cx="224" cy="231" r="10" fill="#fff"/>
+  <circle cx="294" cy="231" r="10" fill="#fff"/>
+  <path d="M235 249q25 18 50 0" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M392 134c28 16 44 42 44 72M112 134c-28 16-44 42-44 72" fill="none" stroke="#ff7d6e" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="94" cy="78" r="24" fill="#ffd76a"/>
+  <circle cx="440" cy="76" r="18" fill="#ff7d6e"/>
+</svg>

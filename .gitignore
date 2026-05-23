@@ -1,0 +1,7 @@
+.env
+.env.local
+.gemini-request.json
+exports/
+node_modules/
+.vercel/
+.edge-cdp-temp/

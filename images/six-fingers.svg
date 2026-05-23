@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-label="六个手指的手">
+  <rect width="320" height="240" rx="24" fill="#fff7e8"/>
+  <g transform="translate(18 8)" fill="#ffd6b1" stroke="#24314b" stroke-width="6" stroke-linejoin="round">
+    <path d="M116 138V58a16 16 0 0 1 32 0v74z"/>
+    <path d="M148 132V36a16 16 0 0 1 32 0v98z"/>
+    <path d="M180 134V48a16 16 0 0 1 32 0v94z"/>
+    <path d="M212 144V68a16 16 0 0 1 32 0v86z"/>
+    <path d="M244 158v-54a15 15 0 0 1 30 0v58c0 42-32 66-76 66h-42c-42 0-74-30-74-72v-30c0-16 13-28 28-28 13 0 24 9 28 21z"/>
+    <path d="M90 146L58 116a16 16 0 0 0-23 23l43 46c12 13 28 19 48 19"/>
+  </g>
+  <circle cx="64" cy="44" r="22" fill="#ff7d6e"/>
+  <text x="64" y="54" text-anchor="middle" font-family="Arial" font-size="30" font-weight="900" fill="#fff">6</text>
+  <text x="160" y="224" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="22" font-weight="900" fill="#24314b">仔细数一数</text>
+</svg>

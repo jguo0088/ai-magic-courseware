@@ -1,0 +1,13 @@
+{
+  "name": "ai-magic-courseware",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI magic courseware for a first-grade classroom activity.",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/courseware.test.js && node tests/browser-smoke.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

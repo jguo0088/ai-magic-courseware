@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" role="img" aria-label="绿苹果训练图片">
+  <rect width="300" height="220" rx="24" fill="#eafff3"/>
+  <path d="M104 78c20-28 48-20 58 8 16 42-12 82-58 82s-74-40-58-82c10-28 38-36 58-8z" fill="#83d96f" stroke="#24314b" stroke-width="6"/>
+  <path d="M190 84c18-24 44-18 54 8 14 38-12 74-54 74s-68-36-54-74c10-26 36-32 54-8z" fill="#b1e85d" stroke="#24314b" stroke-width="6"/>
+  <path d="M104 78c-6-24 8-38 28-42M190 84c-5-20 6-34 24-38" fill="none" stroke="#6f8c3b" stroke-width="7" stroke-linecap="round"/>
+</svg>

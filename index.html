@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI魔法小助手 | 六一课堂</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./courseware-refresh.css" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  </head>
+  <body>
+    <section class="course-cover" id="courseCover" aria-label="课程封面">
+      <div class="cover-sky" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="cover-mascot" aria-hidden="true">
+        <svg class="cover-animal" viewBox="0 0 360 420" role="img" aria-label="可爱的兔子魔法小助手">
+          <defs>
+            <linearGradient id="coverAnimalFur" x1="80" y1="40" x2="286" y2="352" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#fff9f0" />
+              <stop offset=".55" stop-color="#ffffff" />
+              <stop offset="1" stop-color="#dff7ff" />
+            </linearGradient>
+            <linearGradient id="coverAnimalCape" x1="92" y1="250" x2="300" y2="386" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#ff7d6e" />
+              <stop offset=".58" stop-color="#ffd76a" />
+              <stop offset="1" stop-color="#7bd8b8" />
+            </linearGradient>
+            <linearGradient id="coverAnimalWand" x1="40" y1="160" x2="116" y2="316" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#43a4f4" />
+              <stop offset="1" stop-color="#d7c6ff" />
+            </linearGradient>
+          </defs>
+          <g class="animal-shadow"><ellipse cx="185" cy="374" rx="118" ry="24" /></g>
+          <g class="animal-ears">
+            <path class="animal-fur" d="M112 122C76 54 87 12 125 18c34 5 49 55 46 111z" />
+            <path class="animal-inner" d="M126 104C105 58 111 33 129 36c17 3 26 35 24 77z" />
+            <path class="animal-fur" d="M221 128c-1-74 24-118 60-108 38 10 38 61-8 119z" />
+            <path class="animal-inner" d="M240 112c5-48 21-75 39-68 17 7 12 36-17 77z" />
+          </g>
+          <g class="animal-body">
+            <path class="animal-cape" d="M80 290c25-44 71-66 117-57 54 10 90 47 104 102-38 35-173 43-221-45z" />
+            <ellipse class="animal-fur" cx="184" cy="242" rx="107" ry="112" />
+            <ellipse class="animal-belly" cx="184" cy="289" rx="56" ry="47" />
+          </g>
+          <g class="animal-face">
+            <circle class="animal-eye" cx="145" cy="222" r="12" />
+            <circle class="animal-eye" cx="223" cy="222" r="12" />
+            <circle class="animal-eye-shine" cx="140" cy="217" r="4" />
+            <circle class="animal-eye-shine" cx="218" cy="217" r="4" />
+            <ellipse class="animal-cheek" cx="122" cy="247" rx="19" ry="14" />
+            <ellipse class="animal-cheek" cx="246" cy="247" rx="19" ry="14" />
+            <path class="animal-nose" d="M174 239c7-7 14-7 21 0-4 8-17 8-21 0z" />
+            <path class="animal-smile" d="M162 258c11 16 32 16 44 0" />
+          </g>
+          <g class="animal-paw-left">
+            <ellipse class="animal-fur" cx="93" cy="267" rx="31" ry="23" transform="rotate(-24 93 267)" />
+          </g>
+          <g class="animal-paw-right">
+            <ellipse class="animal-fur" cx="263" cy="270" rx="31" ry="23" transform="rotate(24 263 270)" />
+          </g>
+          <g class="animal-wand">
+            <rect x="66" y="170" width="14" height="132" rx="7" transform="rotate(-24 73 236)" fill="url(#coverAnimalWand)" />
+            <path class="animal-star" d="M62 137l12 28 30 2-23 19 7 29-26-16-26 16 7-29-23-19 30-2z" />
+            <circle class="animal-spark spark-a" cx="48" cy="116" r="8" />
+            <circle class="animal-spark spark-b" cx="105" cy="126" r="6" />
+            <circle class="animal-spark spark-c" cx="90" cy="80" r="5" />
+          </g>
+        </svg>
+      </div>
+      <div class="cover-copy">
+        <p>政立路小学 · 一年级 · 六一AI小课堂</p>
+        <h1>AI魔法小助手</h1>
+        <strong>会提问 · 会想象 · 会检查 · 会辨别</strong>
+        <button class="cover-start" id="coverStart">开始闯关</button>
+      </div>
+    </section>
+    <div class="full-magic" id="fullMagic" aria-hidden="true">
+      <span>★</span><span>♥</span><span>✦</span><span>●</span><span>★</span><span>♥</span><span>✦</span><span>●</span>
+    </div>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"><span></span></div>
+          <div>
+            <p class="eyebrow">政立路小学 · 一年级 · 六一AI小课堂</p>
+            <h1>AI魔法小助手</h1>
+          </div>
+        </div>
+        <div class="class-meta">
+          <span>5月29日</span>
+          <strong>一起闯关</strong>
+        </div>
+      </header>
+
+      <nav class="lesson-tabs" aria-label="课程环节">
+        <button class="tab is-active" data-jump="0">破冰</button>
+        <button class="tab" data-jump="1">醒来</button>
+        <button class="tab" data-jump="2">AI是什么</button>
+        <button class="tab" data-jump="3">会学习</button>
+        <button class="tab" data-jump="4">故事机</button>
+        <button class="tab" data-jump="5">提示词</button>
+        <button class="tab" data-jump="6">AI画画</button>
+        <button class="tab" data-jump="7">小立立</button>
+        <button class="tab" data-jump="8">翻牌</button>
+        <button class="tab" data-jump="9">找错误</button>
+        <button class="tab" data-jump="10">防欺诈</button>
+        <button class="tab" data-jump="11">礼品</button>
+        <button class="tab" data-jump="12">通关</button>
+        <button class="tab" data-jump="13">结语</button>
+      </nav>
+
+      <main class="stage" aria-live="polite">
+        <section class="slide is-active icebreaker-slide" data-step="0">
+          <div class="slide-copy">
+            <p class="step-label">第1关 · 开场破冰</p>
+            <h2>魔法师登场：今天我们来认识AI新朋友。</h2>
+            <p class="lead">小朋友们，你们在生活里见过会说话、会思考的机器人吗？</p>
+            <div class="life-examples" aria-label="生活里的AI例子">
+              <article><span class="example-icon speaker-icon"></span><strong>小爱同学</strong><small>会回答问题</small></article>
+              <article><span class="example-icon vacuum-icon"></span><strong>扫地机器人</strong><small>会自己找路</small></article>
+              <article><span class="example-icon car-icon"></span><strong>智能汽车</strong><small>会看路况</small></article>
+            </div>
+            <div class="action-row">
+              <button class="play-button" data-read=".icebreaker-slide .lead" title="播放" aria-label="播放"><span></span></button>
+              <button class="secondary-action" id="icebreakerSpark">魔法变装</button>
+            </div>
+          </div>
+          <div class="icebreaker-stage">
+            <div class="costume-card">
+              <div class="wizard-hat" aria-hidden="true"><i></i></div>
+              <div class="cape" aria-hidden="true"></div>
+              <strong>请戴上魔法师帽子</strong>
+              <span>或披上小斗篷</span>
+            </div>
+            <div class="hidden-ai">
+              <span>AI</span>
+              <p>看不见的小魔法师</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide welcome-slide" data-step="1">
+          <div class="slide-copy">
+            <p class="step-label">第2关 · 小助手醒来啦</p>
+            <h2>跟AI打个招呼：你好，小助手！</h2>
+            <p class="lead">今天我们一起闯关，学会让AI听懂我们，也学会发现AI的小错误。</p>
+            <div class="chant">
+              <button class="play-button" data-read=".welcome-slide .lead" title="播放" aria-label="播放"><span></span></button>
+              <button class="secondary-action" id="sparkMagic">点亮魔法</button>
+            </div>
+          </div>
+          <div class="magic-world" aria-label="AI魔法舞台">
+            <canvas id="magicCanvas"></canvas>
+            <div class="magic-burst" id="magicBurst" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="mascot robot" data-mascot="robot" data-name="蓝耳小智" tabindex="0" role="button" aria-label="选择蓝耳小智">
+              <div class="antenna"></div>
+              <div class="face"><span></span><span></span></div>
+              <p>蓝耳小智</p>
+            </div>
+            <div class="mascot bunny" data-mascot="bunny" data-name="云朵兔兔" tabindex="0" role="button" aria-label="选择云朵兔兔">
+              <div class="ears"></div>
+              <div class="face"><span></span><span></span></div>
+              <p>云朵兔兔</p>
+            </div>
+            <div class="mascot kitten" data-mascot="kitten" data-name="橘子小猫" tabindex="0" role="button" aria-label="选择橘子小猫">
+              <div class="ears cat"></div>
+              <div class="face"><span></span><span></span></div>
+              <p>橘子小猫</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-step="2">
+          <div class="slide-copy">
+            <p class="step-label">第3关 · AI是什么</p>
+            <h2>AI是会听指令、会帮忙想办法的小助手。</h2>
+            <p class="lead">它很聪明，可它不是万能的。我们要说清楚，也要会检查。</p>
+            <div class="idea-grid">
+              <article data-concept="listen" tabindex="0" role="button">
+                <span class="icon-dot blue"></span>
+                <h3>会听</h3>
+                <p>听懂我们想要什么。</p>
+              </article>
+              <article data-concept="draw" tabindex="0" role="button">
+                <span class="icon-dot coral"></span>
+                <h3>会变</h3>
+                <p>把词语变成故事和图画。</p>
+              </article>
+              <article data-concept="mistake" tabindex="0" role="button">
+                <span class="icon-dot green"></span>
+                <h3>会错</h3>
+                <p>听错、数错、猜错都有可能。</p>
+              </article>
+            </div>
+          </div>
+          <div class="board signal-board">
+            <p id="conceptTitle">AI在听</p>
+            <div class="concept-visual is-listen" id="conceptVisual" aria-label="AI概念示意">
+              <img id="conceptImage" class="concept-image" src="./images/ai-listen.svg" alt="AI正在听小朋友说话的卡通图" />
+            </div>
+            <button class="play-button small-play" data-read=".signal-board" title="播放" aria-label="播放"><span></span></button>
+          </div>
+        </section>
+
+        <section class="slide learning-slide" data-step="3">
+          <div class="slide-copy">
+            <p class="step-label">第4关 · AI是怎么学习的</p>
+            <h2>喂它很多“知识糖果”，AI才会认苹果。</h2>
+            <p class="lead">AI学习就像小朋友学认字：看过很多很多例子，下次才更容易认对。</p>
+            <div class="learning-points">
+              <article><span>1</span><strong>看很多次</strong><small>红苹果、绿苹果、被咬一口的苹果。</small></article>
+              <article><span>2</span><strong>找共同点</strong><small>圆圆的、有果柄、可能有叶子。</small></article>
+              <article><span>3</span><strong>也会犯傻</strong><small>没学清楚时，可能把西红柿认成苹果。</small></article>
+            </div>
+          </div>
+          <div class="learning-board">
+            <p class="card-title">猜一猜：为什么都是苹果？</p>
+            <div class="apple-gallery" aria-label="苹果图片猜一猜">
+              <article data-learning-card="apple" class="apple-card red-apple"><b></b><span>红苹果</span></article>
+              <article data-learning-card="apple" class="apple-card green-apple"><b></b><span>绿苹果</span></article>
+              <article data-learning-card="apple" class="apple-card bite-apple"><b></b><span>咬一口</span></article>
+              <article data-learning-card="tomato" class="apple-card tomato-card"><b></b><span>像苹果的西红柿</span></article>
+            </div>
+            <div class="knowledge-candy">
+              <i></i><i></i><i></i><i></i><i></i>
+              <strong>看几万张例子，AI才更会认。</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-step="4">
+          <div class="slide-copy">
+            <p class="step-label">第5关 · 三词故事机</p>
+            <h2>给AI三个词，变出一个小故事。</h2>
+            <p class="lead">请全班一起选三个词，再看看AI会把它们编成什么。</p>
+            <div class="word-bank" aria-label="故事词语池">
+              <button data-word="小兔子">小兔子</button>
+              <button data-word="月亮船">月亮船</button>
+              <button data-word="草莓蛋糕">草莓蛋糕</button>
+              <button data-word="机器人">机器人</button>
+              <button data-word="彩虹">彩虹</button>
+              <button data-word="气球">气球</button>
+              <button data-word="星星">星星</button>
+              <button data-word="小猫">小猫</button>
+              <button data-word="魔法棒">魔法棒</button>
+              <button data-word="操场">操场</button>
+              <button data-word="书包">书包</button>
+              <button data-word="小徽章">小徽章</button>
+            </div>
+            <div class="word-inputs compact-inputs">
+              <label>词语一 <input id="word1" value="小兔子" /></label>
+              <label>词语二 <input id="word2" value="月亮船" /></label>
+              <label>词语三 <input id="word3" value="草莓蛋糕" /></label>
+            </div>
+            <div class="action-row">
+              <button class="primary-action" id="makeStory">变故事</button>
+              <button class="play-button" data-read="#storyOutput" title="播放故事" aria-label="播放故事"><span></span></button>
+            </div>
+          </div>
+          <div class="story-card">
+            <p class="card-title">故事泡泡</p>
+            <div id="storyOutput">
+              小兔子坐着月亮船，带着草莓蛋糕去找星星朋友。大家一起唱歌，月光亮亮的，笑声甜甜的。
+            </div>
+            <div class="cartoon-loader story-loader" id="storyLoading" aria-hidden="true">
+              <div class="loader-bot">
+                <span></span>
+                <span></span>
+              </div>
+              <div class="loader-cloud">
+                <b></b>
+                <b></b>
+                <b></b>
+              </div>
+              <p>小智正在把词语变成故事...</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-step="5">
+          <div class="slide-copy">
+            <p class="step-label">第6关 · 提示词魔法棒</p>
+            <h2>一句话越清楚，AI越容易听懂。</h2>
+            <p class="lead">把“画一只小猫”升级成一条闪闪发光的魔法指令。</p>
+            <div class="prompt-builder compact-inputs cute-prompt-builder">
+              <label><span class="cartoon-icon cat-icon"></span><em>主角</em><input id="hero" value="小猫" /></label>
+              <label><span class="cartoon-icon color-icon"></span><em>颜色</em><input id="color" value="橘色" /></label>
+              <label><span class="cartoon-icon place-icon"></span><em>地点</em><input id="place" value="彩旗教室" /></label>
+              <label><span class="cartoon-icon action-icon"></span><em>动作</em><input id="action" value="和机器人跳舞" /></label>
+              <label><span class="cartoon-icon mood-icon"></span><em>心情</em><input id="mood" value="开心" /></label>
+            </div>
+            <div class="action-row">
+              <button class="primary-action" id="buildPrompt">变长指令</button>
+              <button class="play-button" data-read="#promptOutput" title="播放" aria-label="播放"><span></span></button>
+            </div>
+          </div>
+          <div class="prompt-card">
+            <p class="card-title">魔法指令</p>
+            <div id="promptOutput">请画一只橘色小猫，在彩旗教室里和机器人跳舞，心情开心，画面可爱明亮。</div>
+            <svg class="wand-svg" viewBox="0 0 180 70" role="img" aria-label="魔法棒">
+              <path d="M28 54 L144 16" />
+              <circle cx="150" cy="14" r="10" />
+              <path d="M156 9 L171 1 M160 18 L178 24 M146 4 L141 -9" />
+            </svg>
+            <div class="prompt-compare">
+              <article>
+                <p>普通指令</p>
+                <div class="simple-cat"><span></span></div>
+                <small>画一只小猫</small>
+              </article>
+              <article>
+                <p>魔法指令</p>
+                <div class="magic-cat"><span></span><i></i></div>
+                <small>小猫在教室里开心跳舞</small>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-step="6">
+          <div class="slide-copy">
+            <p class="step-label">第7关 · AI画画</p>
+            <h2>把想象变成一张可爱的课堂图画。</h2>
+            <p class="lead">大家一起说画面，AI负责画。画完以后，小侦探们来检查细节。</p>
+            <label class="wide-field">
+              画面咒语
+              <textarea id="artPrompt">三只小猫戴着不同颜色的帽子，和蓝耳小机器人一起在教室庆祝六一，彩旗、气球、笑脸，可爱卡通风格。</textarea>
+            </label>
+            <div class="action-row">
+              <button class="mic" data-voice-target="artPrompt" title="语音输入画面咒语">麦克风</button>
+              <button class="primary-action" id="generateImage">生成图片</button>
+              <button class="play-button" data-read="#artPrompt" title="播放" aria-label="播放"><span></span></button>
+            </div>
+          </div>
+          <div class="image-panel">
+            <div class="image-frame" id="imageFrame">
+              <svg class="picture-placeholder" viewBox="0 0 400 320" role="img" aria-label="等待生成的课堂图画">
+                <rect width="400" height="320" rx="12" />
+                <circle cx="88" cy="78" r="28" />
+                <path d="M42 260 C120 130 180 260 250 150 C300 80 344 170 376 120 L376 294 L42 294 Z" />
+                <text x="200" y="168">AI画板</text>
+              </svg>
+              <img id="generatedImage" alt="AI生成的课堂图画" />
+              <div class="cartoon-loader loading-sparkles" id="imageLoading" aria-hidden="true">
+                <div class="loader-bot">
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="paint-dots">
+                  <b></b>
+                  <b></b>
+                  <b></b>
+                </div>
+                <p>画笔刷刷刷，AI正在画...</p>
+              </div>
+            </div>
+            <p class="checkline">找一找：数量对吗？颜色对吗？有没有少画？</p>
+          </div>
+        </section>
+
+        <section class="slide" data-step="7">
+          <div class="slide-copy">
+            <p class="step-label">第8关 · 一起创造小立立</p>
+            <h2>给政立路小学的小立立设计新造型。</h2>
+            <p class="lead">小立立今天要来参加六一AI课堂。它穿什么？拿什么？做什么动作？</p>
+            <label class="wide-field">
+              小立立新造型
+              <textarea id="liliPrompt">政立路小学卡通形象小立立，穿蓝白校服，戴红领巾，举着AI魔法星星，站在六一彩旗教室里，表情开心，可爱卡通风格。</textarea>
+            </label>
+            <div class="action-row">
+              <button class="mic" data-voice-target="liliPrompt" title="语音输入小立立造型">麦克风</button>
+              <button class="primary-action" id="generateLili">生成小立立</button>
+              <button class="play-button" data-read="#liliPrompt" title="播放" aria-label="播放"><span></span></button>
+            </div>
+          </div>
+          <div class="lili-lab">
+            <div class="lili-preview" id="liliPreview">
+              <svg viewBox="0 0 360 360" role="img" aria-label="小立立预览">
+                <circle cx="180" cy="180" r="150" />
+                <path d="M102 212 C110 142 138 102 180 102 C222 102 250 142 258 212 C248 270 215 302 180 302 C145 302 112 270 102 212 Z" />
+                <circle cx="145" cy="178" r="11" />
+                <circle cx="215" cy="178" r="11" />
+                <path d="M150 226 Q180 250 210 226" />
+                <path d="M128 124 L98 72 L158 100" />
+                <path d="M232 124 L262 72 L202 100" />
+                <path d="M180 248 L164 282 L196 282 Z" />
+                <text x="180" y="335">小立立</text>
+              </svg>
+              <img id="liliImage" alt="AI生成的小立立形象" />
+              <div class="cartoon-loader loading-sparkles" id="liliLoading" aria-hidden="true">
+                <div class="loader-bot">
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="paint-dots">
+                  <b></b>
+                  <b></b>
+                  <b></b>
+                </div>
+                <p>小立立正在换新造型...</p>
+              </div>
+            </div>
+            <div class="badge-row">
+              <button class="small-action lili-chip" data-lili="穿蓝白校服">校服</button>
+              <button class="small-action lili-chip" data-lili="戴红领巾">红领巾</button>
+              <button class="small-action lili-chip" data-lili="拿着星星魔法棒">星星</button>
+              <button class="small-action lili-chip" data-lili="站在政立路小学门口">校门</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide game-slide" data-step="8">
+          <div class="slide-copy">
+            <p class="step-label">第9关 · AI生成记忆翻牌</p>
+            <h2>一键施法，现场变出小游戏。</h2>
+            <p class="lead">点“一键施法”，让AI快速生成记忆翻牌小游戏，再点“运行 / 预览”一起挑战。</p>
+            <div class="scene-picker" aria-label="选择三个游戏场景">
+              <button class="scene-card is-selected" data-game-scene="rainbow"><span class="scene-icon rainbow-scene"></span><strong>彩虹操场</strong></button>
+              <button class="scene-card is-selected" data-game-scene="forest"><span class="scene-icon forest-scene"></span><strong>糖果森林</strong></button>
+              <button class="scene-card is-selected" data-game-scene="space"><span class="scene-icon space-scene"></span><strong>星星太空</strong></button>
+              <button class="scene-card" data-game-scene="ocean"><span class="scene-icon ocean-scene"></span><strong>海底泡泡</strong></button>
+              <button class="scene-card" data-game-scene="library"><span class="scene-icon library-scene"></span><strong>魔法图书馆</strong></button>
+              <button class="scene-card" data-game-scene="moon"><span class="scene-icon moon-scene"></span><strong>月亮小船</strong></button>
+            </div>
+            <div class="action-row">
+              <button class="primary-action" id="buildGame">生成小游戏</button>
+              <button class="secondary-action" id="nextGameScene">下一关</button>
+            </div>
+          </div>
+          <div class="game-panel">
+            <div class="game-head">
+              <p id="gameSceneTitle">彩虹操场</p>
+              <strong id="gameScore">0 / 3</strong>
+            </div>
+            <div class="game-stage theme-rainbow" id="gameStage">
+              <svg class="match-lines" id="matchLines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+              <div class="game-lili">
+                <img id="gameLiliImage" alt="小立立进入游戏" />
+                <div class="game-lili-default"><span></span><b></b></div>
+                <p>小立立加油</p>
+              </div>
+              <div class="match-column left-column" id="leftMatchCards" aria-label="汉字卡片">
+                <button class="matching-card" data-match-side="left" data-match-id="ball">球</button>
+                <button class="matching-card" data-match-side="left" data-match-id="bag">书包</button>
+                <button class="matching-card" data-match-side="left" data-match-id="run">跑步</button>
+              </div>
+              <div class="match-column english-column" id="englishMatchCards" aria-label="英语卡片">
+                <button class="matching-card english-card" data-match-side="middle" data-match-id="run">run</button>
+                <button class="matching-card english-card" data-match-side="middle" data-match-id="ball">ball</button>
+                <button class="matching-card english-card" data-match-side="middle" data-match-id="bag">bag</button>
+              </div>
+              <div class="match-column picture-column" id="pictureMatchCards" aria-label="图形卡片">
+                <button class="matching-card picture-card" data-match-side="right" data-match-id="bag"><span class="mini-picture bag-picture"></span></button>
+                <button class="matching-card picture-card" data-match-side="right" data-match-id="run"><span class="mini-picture run-picture"></span></button>
+                <button class="matching-card picture-card" data-match-side="right" data-match-id="ball"><span class="mini-picture ball-picture"></span></button>
+              </div>
+            </div>
+            <p class="game-feedback" id="gameFeedback">每一组要点汉字、英语、图形三张卡。三张都对，才算连对。</p>
+          </div>
+        </section>
+
+        <section class="slide detective-slide" data-step="9">
+          <div class="slide-copy">
+            <p class="step-label">第10关 · AI小侦探</p>
+            <h2>AI也会犯错，我们来抓住它。</h2>
+            <p class="lead">请小侦探们睁大眼睛：它是听错了、数错了，还是偷偷乱猜了？</p>
+            <div class="detective-actions">
+              <button class="primary-action" data-case="listen">听错了</button>
+              <button class="primary-action" data-case="count">数错了</button>
+              <button class="primary-action" data-case="guess">乱猜了</button>
+            </div>
+          </div>
+          <div class="detective-card">
+            <p class="card-title">侦探任务</p>
+            <div id="detectiveCase">
+              老师说：“小兔子坐在月亮船上吃草莓蛋糕。”AI听成了“小兔子坐在月饼船上吃草莓蛋糕”。哪里不一样？
+            </div>
+            <div class="error-demo" id="errorDemo">
+              <div class="demo-card correct"><span>月亮船</span><b></b></div>
+              <div class="demo-card wrong"><span>月饼船</span><b></b></div>
+            </div>
+            <div class="detective-choices">
+              <button class="detective-choice" data-answer="listen">AI听错了词</button>
+              <button class="detective-choice" data-answer="count">AI数错了数量</button>
+              <button class="detective-choice" data-answer="guess">AI偷偷乱猜</button>
+            </div>
+            <p class="detective-feedback" id="detectiveFeedback">点一个答案，小侦探徽章会亮起来。</p>
+            <button class="play-button" data-read="#detectiveCase" title="播放任务" aria-label="播放任务"><span></span></button>
+          </div>
+        </section>
+
+        <section class="slide ai-fraud-slide" data-step="10">
+          <div class="slide-copy">
+            <p class="step-label">第11关 · AI图片防欺诈</p>
+            <h2>AI图片很逼真，我们要学会辨别。</h2>
+            <p class="lead">有些图片看起来像真的，但可能是AI生成的。遇到奇怪、吓人、要钱、要密码的图片，先停一停，问大人，别急着相信。</p>
+          </div>
+          <div class="fraud-panel">
+            <button class="fraud-arrow" id="fraudPrev" aria-label="上一张">‹</button>
+            <figure class="fraud-image-frame" id="fraudImageFrame">
+              <img id="fraudImage" src="./images/ai1.png" alt="AI图片辨别练习" />
+            </figure>
+            <button class="fraud-arrow" id="fraudNext" aria-label="下一张">›</button>
+            <div class="fraud-choice-row">
+              <button class="primary-action fraud-choice" data-fraud-answer="ai">AI图片</button>
+              <button class="secondary-action fraud-choice" data-fraud-answer="real">真实图片</button>
+            </div>
+            <p class="fraud-feedback" id="fraudFeedback">看一看这张图片，再猜一猜：它是AI图片，还是真实图片？</p>
+          </div>
+        </section>
+
+        <section class="slide" data-step="11">
+          <div class="slide-copy">
+            <p class="step-label">第11关 · 礼品宝箱</p>
+            <h2>星星越多，宝箱越亮。</h2>
+            <p class="lead">送给会提问、会想象、会检查的小朋友。</p>
+            <div class="action-row">
+              <button class="primary-action" id="drawGift">打开宝箱</button>
+            </div>
+          </div>
+          <div class="gift-panel">
+            <div class="fireworks" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="gift-box" id="giftBox"><span></span></div>
+            <p id="giftResult">宝箱正在发光</p>
+            <div class="award-card" id="awardCard">
+              <span>奖</span>
+              <strong>等待颁奖</strong>
+              <em>点击宝箱出现一个新奖项</em>
+            </div>
+            <div class="star-wall" id="starWall" aria-label="星星奖励墙"></div>
+          </div>
+        </section>
+
+        <section class="slide" data-step="12">
+          <div class="slide-copy">
+            <p class="step-label">第12关 · 今日通关</p>
+            <h2>我们都是AI小小指挥官。</h2>
+            <div class="rules">
+              <article><strong>1</strong><span>想清楚，再提问。</span></article>
+              <article><strong>2</strong><span>AI答案，要检查。</span></article>
+              <article><strong>3</strong><span>个人信息，不告诉AI。</span></article>
+            </div>
+            <div class="action-row">
+              <button class="play-button" data-read=".rules" title="播放" aria-label="播放"><span></span></button>
+              <button class="secondary-action" id="resetLesson">重新开始</button>
+            </div>
+          </div>
+          <div class="certificate">
+            <p>恭喜通关</p>
+            <strong>AI小小指挥官</strong>
+            <span>会提问 · 会想象 · 会检查</span>
+            <div class="badge-gift" aria-label="每个小朋友一枚小徽章">
+              <b></b>
+              <em>每人一枚小徽章</em>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide magician-slide" data-step="13">
+          <div class="slide-copy">
+            <p class="step-label">第13关 · 我们都是小魔法师</p>
+            <h2>学好本领，未来也能创造更厉害的AI魔法。</h2>
+            <p class="lead">今天的小魔法师AI，是很多科学家和工程师创造的。你们学好数学、语文、画画，也能创造新魔法。</p>
+            <div class="chant-spell">
+              <strong>全班一起念</strong>
+              <p>AI AI，好好学习，天天向上！</p>
+            </div>
+            <div class="action-row">
+              <button class="play-button" data-read=".magician-slide .lead" title="播放" aria-label="播放"><span></span></button>
+              <button class="secondary-action" id="finalSpark">一起施咒</button>
+            </div>
+          </div>
+          <div class="final-magic-board">
+            <div class="big-wand" aria-hidden="true"></div>
+            <article>
+              <span>课后小挑战</span>
+              <strong>回家问AI一个奇怪问题</strong>
+              <p>如果长颈鹿戴领带，应该戴在哪里？看看AI怎么回答，再和爸爸妈妈一起检查。</p>
+            </article>
+            <div class="future-kids">
+              <b>数学</b><b>语文</b><b>画画</b><b>好奇心</b>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="controls">
+        <button id="prevSlide" class="control-button">上一关</button>
+        <div class="progress-wrap">
+          <div class="progress-track"><span id="progressBar"></span></div>
+          <p><span id="stepNow">1</span> / <span id="stepTotal">14</span></p>
+        </div>
+        <button id="nextSlide" class="control-button">下一关</button>
+      </footer>
+    </div>
+    <div class="floating-mascot robot" id="floatingMascot" aria-label="悬浮小助手">
+      <div class="antenna"></div>
+      <div class="ears"></div>
+      <div class="face"><span></span><span></span></div>
+      <p>蓝耳小智</p>
+    </div>
+
+    <script src="./app.js"></script>
+    <script src="./courseware-refresh.js"></script>
+  </body>
+</html>

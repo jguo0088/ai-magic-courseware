@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" role="img" aria-label="像苹果的西红柿">
+  <rect width="300" height="220" rx="24" fill="#fff1ee"/>
+  <circle cx="150" cy="120" r="70" fill="#ff6b5f" stroke="#24314b" stroke-width="7"/>
+  <path d="M150 62l16-34 18 36 34-10-22 30 34 14-40 8 6 38-30-26-22 32-8-40-38 8 30-28-26-28 40 6z" fill="#55b96a" stroke="#24314b" stroke-width="6" stroke-linejoin="round"/>
+  <text x="150" y="196" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="22" font-weight="900" fill="#24314b">像苹果，但其实是西红柿</text>
+</svg>

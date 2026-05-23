@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 390" role="img" aria-labelledby="title desc">
+  <title id="title">AI can make mistakes</title>
+  <desc id="desc">A cute confused robot shows a wrong count, inviting children to check the answer.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffe6ee"/>
+      <stop offset=".54" stop-color="#fff8da"/>
+      <stop offset="1" stop-color="#e2f7ff"/>
+    </linearGradient>
+    <linearGradient id="bot" x1="0" x2="1">
+      <stop offset="0" stop-color="#9b8cff"/>
+      <stop offset="1" stop-color="#43a4f4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#1f2f4c" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect width="520" height="390" rx="34" fill="url(#bg)"/>
+  <circle cx="74" cy="80" r="25" fill="#ffd76a" opacity=".6"/>
+  <circle cx="450" cy="307" r="34" fill="#43a4f4" opacity=".2"/>
+  <path d="M42 331 C106 297 163 319 226 288 C304 251 383 281 470 239 L470 390 H42Z" fill="#dff8ed"/>
+  <g filter="url(#shadow)">
+    <path d="M211 109 h110 a34 34 0 0 1 34 34 v115 a38 38 0 0 1-38 38H215 a38 38 0 0 1-38-38V143a34 34 0 0 1 34-34Z" fill="url(#bot)" stroke="#253047" stroke-width="8"/>
+    <path d="M266 109 V78" stroke="#253047" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="266" cy="65" r="15" fill="#ffd76a" stroke="#253047" stroke-width="7"/>
+    <path d="M221 181 q16 -13 32 0" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+    <path d="M282 181 q16 13 32 0" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+    <path d="M238 239 q29 -22 58 0" fill="none" stroke="#253047" stroke-width="8" stroke-linecap="round"/>
+    <path d="M176 168 q-29 14-31 52" fill="none" stroke="#253047" stroke-width="10" stroke-linecap="round"/>
+    <path d="M357 168 q31 14 33 52" fill="none" stroke="#253047" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="58" y="109" width="126" height="170" rx="20" fill="#fff" stroke="#253047" stroke-width="8"/>
+    <path d="M82 144 h78 M82 174 h78" stroke="#253047" stroke-width="7" stroke-linecap="round" opacity=".35"/>
+    <circle cx="92" cy="219" r="13" fill="#ff7d6e"/>
+    <circle cx="124" cy="219" r="13" fill="#ff7d6e"/>
+    <circle cx="156" cy="219" r="13" fill="#ff7d6e"/>
+    <path d="M86 259 h54" stroke="#7bd8b8" stroke-width="10" stroke-linecap="round"/>
+    <path d="M150 246 l26 26 M176 246 l-26 26" stroke="#ff7d6e" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M354 92 h92 a28 28 0 0 1 0 56 h-18 l-25 27 5-27 h-54 a28 28 0 0 1 0-56Z" fill="#fff" stroke="#253047" stroke-width="7"/>
+    <text x="401" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#ff7d6e">?</text>
+    <path d="M360 228 h88 a24 24 0 0 1 0 48 h-34 l-26 27 5-27 h-33 a24 24 0 0 1 0-48Z" fill="#fff" stroke="#253047" stroke-width="7"/>
+    <text x="405" y="262" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#253047">3 = 4?</text>
+  </g>
+  <path d="M431 172 l19 9 l-19 9 l-9 20 l-9-20 l-20-9 l20-9 l9-19Z" fill="#ffd76a" stroke="#253047" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M74 303 l14 7 l-14 7 l-7 15 l-7-15 l-15-7 l15-7 l7-14Z" fill="#7bd8b8" stroke="#253047" stroke-width="5" stroke-linejoin="round"/>
+</svg>

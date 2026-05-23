@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-label="cartoon robot vacuum">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff1e8"/>
+      <stop offset="1" stop-color="#e6fff4"/>
+    </linearGradient>
+    <linearGradient id="bot" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ff7d6e"/>
+      <stop offset="1" stop-color="#ffd76a"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="360" rx="36" fill="url(#bg)"/>
+  <path d="M84 284c80 35 272 36 354 0" fill="none" stroke="#d7c6ff" stroke-width="18" stroke-linecap="round"/>
+  <ellipse cx="260" cy="204" rx="150" ry="92" fill="url(#bot)" filter="drop-shadow(0 20px 18px rgba(37,48,71,.16))"/>
+  <ellipse cx="260" cy="190" rx="112" ry="60" fill="#fff" opacity=".92"/>
+  <circle cx="222" cy="187" r="12" fill="#253047"/>
+  <circle cx="298" cy="187" r="12" fill="#253047"/>
+  <path d="M232 214q28 24 56 0" fill="none" stroke="#ff7d6e" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="260" cy="112" r="34" fill="#43a4f4"/>
+  <circle cx="260" cy="112" r="16" fill="#fff"/>
+  <path d="M118 144c-30 18-42 48-34 78M402 144c30 18 42 48 34 78" fill="none" stroke="#7bd8b8" stroke-width="12" stroke-linecap="round"/>
+  <g fill="#ffd76a">
+    <circle cx="104" cy="76" r="18"/>
+    <circle cx="444" cy="82" r="24"/>
+    <circle cx="432" cy="258" r="14"/>
+  </g>
+</svg>
