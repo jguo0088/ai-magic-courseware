@@ -5,3 +5,5 @@ exports/
 node_modules/
 .vercel/
 .edge-cdp-temp/
+
+.vercel
